@@ -1,36 +1,50 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <HelloWorld msg="Welcome to 10086"/>
+    <!-- <HelloWorld msg="Welcome to 10086" /> -->
+    <div class="nav">
+      <img src="../assets/nav.png" alt="" />
+    </div>
+    <div class="mother">
+      <div class="logo" @click="logoClick"></div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  name:'HomeView',
+  components:{
+    HelloWorld,
   },
-  created(){
-    console.log('爷created')
+  methods:{
+    logoClick() {
+      this.$router.push("/login");
+    },
   },
-  beforeCreate(){
-    console.log('爷created前')
-  },
-  mounted(){
-    console.log('爷mounted')
-  },
-  beforeMount(){
-    console.log('爷mounted前')
-  },
-  beforeDestroy(){
-    console.log('爷beforeDestroy')
-  },
-  destroyed(){
-    console.log('爷destroyed')
+};
+</script>
+
+<style scoped lang=scss>
+.mother {
+  background:url(../assets/home.png);
+  width:100vw;
+  min-height:100vh;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  .logo {
+    position:absolute;
+    top:162px;
+    left:20px;
+    width:157px;
+    height:45px;
   }
 }
-</script>
+.nav {
+  img {
+    width:100%;
+    height:100%;
+  }
+}
+</style>
